@@ -9,7 +9,7 @@ pipeline {
     stages {
        stage('Clone Git Repository') {
             steps {
-               git branch: 'main', credentialsId: '1c24af12-b37a-46d0-a5f8-9e2500b1fa61', url: 'https://github.com/ShubhamRepo13/spring-controller.git'
+              checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'caa8215d-a20d-4cf2-8692-d6cd5eef44f2', url: 'https://github.com/ShubhamRepo13/spring-controller.git']])
             }
          }
      stage('Build using maven'){
