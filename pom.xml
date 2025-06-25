@@ -28,6 +28,15 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<sonar.host.url>http://13.233.152.161:9000/</sonar.host.url>
+		<sonar.login>admin</sonar.login>
+		<sonar.password>Shubham@123</sonar.password> 
+       <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,6 +55,20 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<distributionManagement>
+	    <repository>
+	      <id>nexus</id>
+	      <name>Spring Controller Releases Nexus Repository</name>
+	      <url>http://43.204.109.159:9980/shubham/repository/spring-controller-release/</url>
+	    </repository>
+	    
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>Spring Controller Snapshot Nexus Repository </name>
+	      <url>http://43.204.109.159:9980/shubham/repository/spring-controller-release/</url>
+	    </snapshotRepository>
+	    
+	</distributionManagement>
 
 	<build>
 		<plugins>
