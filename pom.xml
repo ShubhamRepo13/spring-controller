@@ -66,7 +66,7 @@
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Spring Controller Snapshot Nexus Repository </name>
-	      <url>http://43.204.109.159:9980/shubham/repository/spring-controller-release/</url>
+	      <url>http://43.204.109.159:9980/shubham/repository/spring-controller-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
