@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    tools {
+            maven 'maven-3.9.2'
+         }
+         environment {
+    DOCKERHUB_CREDENTIALS= credentials('docker-credentials')
+         }
+    stages {
+       stage('Clone Git Repository') {
+            steps {
+               git branch: 'main', credentialsId: '1c24af12-b37a-46d0-a5f8-9e2500b1fa61', url: 'https://github.com/ShubhamRepo13/spring-controller.git'
+            }
+         }
+     stage('Build using maven'){
+          steps{
+              sh 'mvn clean package'
+               }
+          }
+    stage('Log in To Docker')
+    {
+      steps{
+            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                echo 'Login Completed'
+                        }
+                }
+        stage('Build Docker Image') {
+          steps{
+                    sh "docker build -t $DOCKERHUB_CREDENTIALS_USR/spring-controller:$BUILD_NUMBER ."
+                    echo 'Build Image Completed'
+                }
+        }
+    stage('Run the container') {
+    steps {
+        sh 'docker rm -f spring-controller'
+        sh "docker run -d --name spring-controller -p 8081:8080 $DOCKERHUB_CREDENTIALS_USR/spring-controller:$BUILD_NUMBER"
+          }
+       }
+        }
+
+}
+
