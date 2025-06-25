@@ -31,13 +31,14 @@
 		<sonar.host.url>http://13.233.152.161:9000/</sonar.host.url>
 		<sonar.login>admin</sonar.login>
 		<sonar.password>Shubham@123</sonar.password> 
-       <repositories>
+
+	</properties>
+	<repositories>
 	        <repository>
 	            <id>central</id>
 	            <url>https://repo.maven.apache.org/maven2</url>
 	        </repository>
     </repositories>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
