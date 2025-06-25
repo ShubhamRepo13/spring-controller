@@ -32,10 +32,10 @@
 		<sonar.login>admin</sonar.login>
 		<sonar.password>Shubham@123</sonar.password> 
        <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
+	        <repository>
+	            <id>central</id>
+	            <url>https://repo.maven.apache.org/maven2</url>
+	        </repository>
     </repositories>
 	</properties>
 	<dependencies>
